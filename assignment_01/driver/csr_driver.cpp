@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
         for (int j = 0; j < degree; j++) {
             int neighbor;
             infile >> neighbor;
-            adjList[vertex].push_back({neighbor, 1}); // weight=1, unweighted format
+            adjList[vertex].push_back({neighbor, 1}); 
         }
     }
 
