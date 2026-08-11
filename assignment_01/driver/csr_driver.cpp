@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <chrono>
-#include "../src/csr.h"
+#include "../../common/csr/csr.h"
 
 using namespace std;
 using namespace std::chrono;
