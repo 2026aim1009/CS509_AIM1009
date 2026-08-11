@@ -36,10 +36,12 @@ int main() {
             cout << "\nAvailable GEMM test files:" << endl;
             runCommand("ls assignment_01/tests/gemm_test_*.txt");
 
-            string filename;
+    
+            string testNumber; 
+            cout << "\nEnter GEMM test case number (e.g., 01 or 12): "; 
+            cin >> testNumber;
 
-            cout << "\nEnter test file name (e.g., gemm_test_01.txt): ";
-            cin >> filename;
+            string filename = "gemm_test_" + testNumber + ".txt";
 
             int blockSize;
 
@@ -73,10 +75,10 @@ int main() {
             cout << "\nAvailable CSR test files:" << endl;
             runCommand("ls assignment_01/tests/csr_test_*.txt");
 
-            string filename;
-
-            cout << "\nEnter test file name (e.g., csr_test_01.txt): ";
-            cin >> filename;
+            string testNumber; 
+            cout << "\nEnter CSR test case number (e.g., 01 or 12): "; 
+            cin >> testNumber; 
+            string filename = "csr_test_" + testNumber + ".txt";
 
             cout << "\nCompiling CSR..." << endl;
             runCommand("make csr");
