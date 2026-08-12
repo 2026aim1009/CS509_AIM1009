@@ -1,0 +1,14 @@
+# Compiled binaries
+assignment_01/driver/gemm_driver
+assignment_01/driver/csr_driver
+assignment_02/driver/bellman_ford_driver
+assignment_02/driver/floyd_warshall_driver
+common_wrapper/wrapper
+
+# Build output directories
+assignment_01/outputs/
+assignment_02/outputs/
+
+# Temporary files
+*.o
+*.out
