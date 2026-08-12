@@ -68,13 +68,13 @@ make bellman_ford
 
 ### Results
 
-| Mode | Test File | Input Type | Input Size | Expected Output | Actual Output | Algorithm Time (ms) |
-|---|---|---|---|---|---|---:|
-| Individual | `bf_10.txt` | Adjacency list → CSR | V=10, E=26 | No negative cycle | No negative cycle | 0.000798 |
-| Individual | `bf_100.txt` | Adjacency list → CSR | V=100, E=595 | No negative cycle | No negative cycle | 0.048847 |
-| Individual | `bf_10000.txt` | Adjacency list → CSR | V=10,000, E=29,994 | No negative cycle | No negative cycle | 812.628 |
-| Individual | `bf_50000.txt` | Adjacency list → CSR | V=50,000, E=99,996 | No negative cycle | No negative cycle | 18,294.2 |
-| Individual | `bf_100000.txt` | Adjacency list → CSR | V=100,000, E=199,998 | No negative cycle | No negative cycle | 3,117.05 |
+| Mode | Test File | Input Type | Input Size | Negative Cycle | Algorithm Time (ms) |
+|---|---|---|---|---|---:|
+| Individual | `bf_10.txt` | Adjacency list → CSR | V=10, E=26 | No negative cycle  | 0.000798 |
+| Individual | `bf_100.txt` | Adjacency list → CSR | V=100, E=595 | No negative cycle  | 0.048847 |
+| Individual | `bf_10000.txt` | Adjacency list → CSR | V=10,000, E=29,994 | No negative cycle  | 812.628 |
+| Individual | `bf_50000.txt` | Adjacency list → CSR | V=50,000, E=99,996 | No negative cycle  | 18,294.2 |
+| Individual | `bf_100000.txt` | Adjacency list → CSR | V=100,000, E=199,998 | No negative cycle | 3,117.05 |
 
 ### Complexity
 
@@ -130,13 +130,13 @@ make floyd_warshall
 
 ### Results
 
-| Mode | Test File | Input Type | Input Size | Expected Output | Actual Output | Algorithm Time (ms) |
-|---|---|---|---|---|---|---:|
-| Individual | `fw_10.txt` | Distance matrix | V=10 | No negative cycle | No negative cycle | 0.004617 |
-| Individual | `fw_100.txt` | Distance matrix | V=100 | No negative cycle | No negative cycle | 3.72939 |
-| Individual | `fw_500.txt` | Distance matrix | V=500 | No negative cycle | No negative cycle | 89.4173 |
-| Individual | `fw_1000.txt` | Distance matrix | V=1,000 | No negative cycle | No negative cycle | 1,062.44 |
-| Individual | `fw_2000.txt` | Distance matrix | V=2,000 | No negative cycle | No negative cycle | 9,356.85 |
+| Mode | Test File | Input Type | Input Size | Negative cycle | Algorithm Time (ms) |
+|---|---|---|---|---|---:|
+| Individual | `fw_10.txt` | Distance matrix | V=10 | No negative cycle  | 0.004617 |
+| Individual | `fw_100.txt` | Distance matrix | V=100 | No negative cycle | 3.72939 |
+| Individual | `fw_500.txt` | Distance matrix | V=500 | No negative cycle  | 89.4173 |
+| Individual | `fw_1000.txt` | Distance matrix | V=1,000 | No negative cycle  | 1,062.44 |
+| Individual | `fw_2000.txt` | Distance matrix | V=2,000 | No negative cycle  | 9,356.85 |
 
 ### Complexity
 
