@@ -35,7 +35,7 @@ int main() {
             runCommand("ls assignment_01/tests/gemm_test_*.txt");
 
             string testNumber;
-            cout << "\nEnter GEMM test case number (e.g., 01 or 12): ";
+            cout << "\nEnter GEMM test case number (e.g., 01): ";
             cin >> testNumber;
             string filename = "gemm_test_" + testNumber + ".txt";
 
@@ -64,7 +64,7 @@ int main() {
             runCommand("ls assignment_01/tests/csr_test_*.txt");
 
             string testNumber;
-            cout << "\nEnter CSR test case number (e.g., 01 or 12): ";
+            cout << "\nEnter CSR test case number (e.g., 01 ): ";
             cin >> testNumber;
             string filename = "csr_test_" + testNumber + ".txt";
 
@@ -87,7 +87,7 @@ int main() {
             runCommand("ls assignment_02/tests/bf_*.txt");
 
             string testNumber;
-            cout << "\nEnter Bellman-Ford test case number (e.g., 10 or 100): ";
+            cout << "\nEnter Bellman-Ford test case number (e.g., 10 ): ";
             cin >> testNumber;
             string filename = "bf_" + testNumber + ".txt";
 
@@ -110,7 +110,7 @@ int main() {
             runCommand("ls assignment_02/tests/fw_*.txt");
 
             string testNumber;
-            cout << "\nEnter Floyd-Warshall test case number (e.g., 10 or 100): ";
+            cout << "\nEnter Floyd-Warshall test case number (e.g., 10 ): ";
             cin >> testNumber;
             string filename = "fw_" + testNumber + ".txt";
 
