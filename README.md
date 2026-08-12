@@ -1,152 +1,175 @@
 # CS509 Laboratory Repository — Individual Assignments
 
-## Repository Overview
-This repository contains individual assignment work for CS509.
-
 ## Student Details
-- Name: KANAK
-- Entry Number: 2026AIM1009
+
+- **Name:** KANAK
+- **Entry Number:** 2026AIM1009
+
+---
+
+## Repository Overview
+
+This repository contains the individual laboratory assignments for **CS509**.
+
+---
 
 ## Language and Environment
-- Language: C++
-- Compiler: g++ (git version 2.53.0)
-- OS: Ubuntu
-- Standard: C++17
 
-## Directory Structure
+- **Language:** C++
+- **Standard:** C++17
+- **Compiler:** `g++`(Ubuntu 15.2.0-16ubuntu1) 15.2.0
+- **Operating System:** Ubuntu
 
-```
+---
+
+## Repository Structure
+
+```text
 CS509_AIM1009/
 ├── README.md
+├── Makefile
+│
+├── common/
+│   ├── csr/
+│      ├── csr.h
+│      └── csr.cpp
+│   
+│
 ├── common_wrapper/
-│   └── wrapper.cpp          — menu to compile/run GEMM and CSR
-└── assignment_01/
+│   └── wrapper.cpp
+│
+├── assignment_01/
+│   ├── README.md
+│   ├── src/
+│   ├── driver/
+│   ├── tests/
+│   ├── tools/
+│   └── outputs/
+│
+└── assignment_02/
+    ├── README.md
     ├── src/
-    │   ├── gemm.h / gemm.cpp   — GEMM Simple and Blocking implementations
-    │   └── csr.h / csr.cpp     — Adjacency-list to CSR conversion
     ├── driver/
-    │   ├── gemm_driver.cpp     — reads GEMM input, times & runs algorithm, prints result
-    │   └── csr_driver.cpp      — reads graph input, times & runs CSR conversion, prints result
-    ├── tools/
-    │   ├── generator.cpp       — generates GEMM and CSR test files
-    │   └── generate_all_tests.sh
-    ├── tests/                  — all test input files
-    └── outputs/                — optional saved outputs
+    ├── tests/
+    └── tools/
 ```
-
-## Common Wrapper: Build and Usage
-```bash
-cd common_wrapper
-g++ -std=c++17 -o wrapper wrapper.cpp
-./wrapper
-```
-- Option 1: Run one GEMM test file (prompts for filename and block size)
-- Option 2: Run one CSR test file (prompts for filename)
-- Option 0: Exit
-
-## General Conventions
-- Test files follow the naming pattern `gemm_test_XX.txt` / `csr_test_XX.txt` .
-- Timing is measured only around the algorithm call (`high_resolution_clock`), excluding file I/O,
-  parsing, and output printing, per assignment requirements.
-- Reported in milliseconds (ms).
 
 ---
 
-## Assignment 01 — GEMM (Individual)
+# Assignments
 
-### Objective
-Multiply two matrices A (M×K) and B (K×N) to produce C (M×N), using both a direct
-triple-loop (Simple) implementation and a cache-friendly tiled (Blocking) implementation.
+## Assignment 01
 
-### Algorithm / Approach
-- **Simple**: standard three nested loops (i, j, k)
-- **Blocking**: matrices are divided into `blockSize × blockSize` tiles to improve cache reuse;
-  block size is passed as a command-line argument at run time
+Assignment 01 contains the following individual implementations:
 
-### Input Format
-M K N
-A row 0 ... A row M-1
-B row 0 ... B row K-1
+1. **GEMM — Simple**
+2. **GEMM — Blocking**
+3. **Adjacency List to CSR Conversion**
 
-### File Structure
-- `src/gemm.h`, `src/gemm.cpp` — `gemmSimple()`, `gemmBlocking()`
-- `driver/gemm_driver.cpp` — reads file, times both algorithms, prints results
+Detailed documentation, including algorithms, input formats, execution instructions, complexity analysis, and results, is available in:
 
-### Compilation
-```bash
-cd assignment_01/driver
-g++ -o gemm_driver gemm_driver.cpp ../src/gemm.cpp
+```text
+assignment_01/README.md
 ```
-
-### Execution
-```bash
-./gemm_driver ../tests/gemm_test_01.txt <blockSize>
-```
-
-### Result Table
-
-| Test File | Input Size (MxK, KxN)  | Simple Time (ms) | Blocking Time (ms) | Block Size | Status |
-|---|---|---|---|---|---|
-| gemm_test_01.txt | 5x5, 5x5 |  0.002648  | 0.004046 | 2 | Pass |
-| gemm_test_02.txt | 10x10, 10x10 |  0.014422 | 0.017136 | 2 | Pass |
-| gemm_test_03.txt | 50x50, 50x50 |  1.24615 | 1.30095 | 16 | Pass |
-| gemm_test_03.txt | 50x50, 50x50 |  1.24615 | 1.37996 | 32 | Pass |
-| gemm_test_05.txt | 300x300, 300x300 |  257.876 | 230.438 | 32 | pass |
-
-
-
-### Complexity
-- Time: O(M×K×N) for both Simple and Blocking
-- Space: O(M×K + K×N + M×N)
-
-
 
 ---
 
-## CSR — Adjacency List to CSR Conversion (Individual)
+## Assignment 02
 
-### Objective
-Convert an adjacency-list graph representation into Compressed Sparse Row (CSR) format
-(`row_ptr`, `col_idx`, `values`), as required preprocessing for graph algorithms.
+Assignment 02 contains the following individual implementations:
 
-### Algorithm / Approach
-- Compute `row_ptr` by accumulating each vertex's degree
-- Fill `col_idx` and `values` by placing each vertex's neighbors starting at its `row_ptr` offset
+1. **Bellman-Ford**
+2. **Floyd-Warshall**
 
-### Input Format
+Detailed documentation, including algorithms, input formats, execution instructions, complexity analysis, and results, is available in:
 
-V E
-u0 degree neighbor1 neighbor2 ...
-...
-SOURCE s
-
-### File Structure
-- `src/csr.h`, `src/csr.cpp` — `CSRGraph` struct, `convertToCSR()`
-- `driver/csr_driver.cpp` — reads adjacency-list file, times & runs conversion, prints CSR arrays
-
-### Compilation
-```bash
-cd assignment_01/driver
-g++ -o csr_driver csr_driver.cpp ../src/csr.cpp
+```text
+assignment_02/README.md
 ```
 
-### Execution
-```bash
-./csr_driver ../tests/csr_test_01.txt
+---
+
+# Common Components
+
+## CSR
+
+The CSR (Compressed Sparse Row) implementation is maintained under `common/csr/` because it is a reusable graph representation and conversion component used by multiple assignments.
+
+```text
+common/csr/
+├── csr.h
+└── csr.cpp
 ```
 
-### Result Table
-
-| Test File | V | E | Conversion Time (ms) | Status |
-|---|---|---|---|---|
-| csr_test_01.txt | 10 | 10 | 0.002421 | Pass |
-| csr_test_02.txt | 10 | 25 | 0.002801 | Pass |
-| csr_test_03.txt | 100 | 200 | 0.008962 | Pass |
-| csr_test_04.txt | 100 | 500 |  0.014177 | Pass |
 
 
-### Complexity
-- Time: O(V + E)
-- Space: O(V + E)
+These components are intended to be shared across assignments wherever required.
 
-### References
+---
+
+# Common Wrapper
+
+The file:
+
+```text
+common_wrapper/wrapper.cpp
+```
+
+provides a menu-driven interface for compiling and running the individual assignment programs.
+
+The wrapper is intended to be executed from the **repository root**.
+
+---
+
+## Building and Running the Wrapper
+
+From the repository root:
+
+```bash
+make wrapper
+./common_wrapper/wrapper
+```
+
+The wrapper provides a menu containing the available individual assignment programs.
+
+For test cases, the wrapper accepts the **test case number** instead of requiring the complete test filename.
+
+For example:
+
+```text
+01
+```
+
+is used to select the corresponding test case according to the naming convention of the selected algorithm.
+
+---
+
+# Build System
+
+Compilation is handled by the root `Makefile`.
+
+## Build All Programs
+
+```bash
+make all
+```
+
+## Build Individual Programs
+```bash
+make gemm
+make csr
+make bellman_ford
+make floyd_warshall
+make wrapper
+```
+## Remove generated executables:
+```bash
+make clean
+```
+
+
+
+
+
+
+
