@@ -20,23 +20,23 @@ exactly `V - 1` edges while minimizing total edge weight.
 
 ### Approach
 
-- The input adjacency list is converted to CSR before timing (Section 4.1).
+- The input adjacency list is converted to CSR before timing.
 - **Kruskal:** the undirected edge list is extracted from the CSR
   representation (each edge kept once, via `neighbor > u`), sorted by
   non-decreasing weight, and added greedily using a Disjoint Set Union
   (Union-Find, path compression + union by rank) to reject edges that
   would form a cycle. Extraction and sorting happen inside the timed
-  Kruskal call, per Section 8.
+  Kruskal call.
 - **Prim:** starts at vertex 0 (recommended for reproducibility) and
   grows one tree using a min-priority queue over frontier edge keys,
   with lazy deletion of stale queue entries.
 - Both implementations accept positive, zero, or negative integer edge
-  weights (Section 5.1).
+  weights.
 - If the input graph is not connected, the driver still reports the
   partial forest and total weight found, and prints an explicit warning
   rather than silently producing an incomplete MST.
 
-### Input Format (Section 5.1)
+### Input Format
 
 ```text
 V E
@@ -49,7 +49,7 @@ u(V-1) degree neighbor1 weight1 neighbor2 weight2 ...
 Every undirected edge appears in both endpoints' adjacency lists with
 the same weight. `E` counts each undirected edge once.
 
-### Output Format (Section 5.3)
+### Output Format 
 
 ```text
 Algorithm: Kruskal's MST
@@ -109,7 +109,7 @@ make mst
 ### Generating Test Files
 
 Test files are randomly generated, connected, sparse graphs
-(`E ≈ 2V` to `4V`) with positive integer weights, per Section 4.2:
+(`E ≈ 2V` to `4V`) with positive integer weights:
 
 ```bash
 python3 assignment_03/tools/generate_mst_tests.py
@@ -134,13 +134,6 @@ bash assignment_03/tools/run_all_tests.sh
 | `mst_50000.txt` | 50,000 | 100,000 | 14,288,579 | 14,288,579 | 8.22938 | 17.7987 | Yes | Pass |
 | `mst_100000.txt` | 100,000 | 200,000 | 28,631,860 | 28,631,860 | 19.8346 | 38.5544 | Yes | Pass |
 
-*(Timings from `assignment_03/tools/run_all_tests.sh`; single-run wall-clock times, so
-minor run-to-run variation is expected — total weights are deterministic and identical
-across runs.)*
-
-Verified against the spec's worked example (Section 5.2 / 5.3, `V=5, E=7`):
-both algorithms report a total MST weight of `16`, matching the expected
-output exactly.
 
 ### Complexity
 
@@ -150,7 +143,6 @@ output exactly.
 ### Correctness Checks Performed
 
 - Total MST weight matches between Kruskal and Prim on every test file.
-- Verified against the spec's Section 5.2 worked example.
 - Negative-weight edges accepted and produce a correct (possibly
   negative) total weight.
 - Disconnected input and single-vertex input handled without crashing.
