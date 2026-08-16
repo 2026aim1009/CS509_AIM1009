@@ -46,12 +46,20 @@ CS509_AIM1009/
 │   ├── tools/
 │   └── outputs/
 │
-└── assignment_02/
+├── assignment_02/
+│   ├── README.md
+│   ├── src/
+│   ├── driver/
+│   ├── tests/
+│   └── tools/
+│
+└── assignment_03/
     ├── README.md
     ├── src/
     ├── driver/
     ├── tests/
-    └── tools/
+    ├── tools/
+    └── outputs/
 ```
 
 ---
@@ -85,6 +93,23 @@ Detailed documentation, including algorithms, input formats, execution instructi
 
 ```text
 assignment_02/README.md
+```
+
+---
+
+## Assignment 03
+
+Assignment 03 contains the following individual implementation:
+
+1. **Minimum Spanning Tree — Kruskal's algorithm**
+2. **Minimum Spanning Tree — Prim's algorithm**
+
+
+
+Detailed documentation, including algorithms, input formats, execution instructions, complexity analysis, and results, is available in:
+
+```text
+assignment_03/README.md
 ```
 
 ---
@@ -160,6 +185,7 @@ make gemm
 make csr
 make bellman_ford
 make floyd_warshall
+make mst
 make wrapper
 ```
 ## Remove generated executables:
