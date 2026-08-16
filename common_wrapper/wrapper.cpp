@@ -22,6 +22,7 @@ int main() {
         cout << "2. CSR Conversion" << endl;
         cout << "3. Bellman-Ford" << endl;
         cout << "4. Floyd-Warshall" << endl;
+        cout << "5. MST (Kruskal & Prim)" << endl;
         cout << "0. Exit" << endl;
 
         cout << "\nEnter choice: ";
@@ -121,6 +122,29 @@ int main() {
             runCommand(
                 "./assignment_02/driver/floyd_warshall_driver " +
                 string("assignment_02/tests/") +
+                filename
+            );
+        }
+
+        // --------------------------------------------------
+        // MST (Kruskal & Prim)
+        // --------------------------------------------------
+        else if (choice == 5) {
+            cout << "\nAvailable MST test files:" << endl;
+            runCommand("ls assignment_03/tests/mst_*.txt");
+
+            string testSize;
+            cout << "\nEnter MST test case size (e.g., 10, 100, 10000): ";
+            cin >> testSize;
+            string filename = "mst_" + testSize + ".txt";
+
+            cout << "\nCompiling MST...\n" << endl;
+            runCommand("make mst");
+
+            cout << "\nRunning Kruskal's and Prim's MST on " << filename << "...\n" << endl;
+            runCommand(
+                "./assignment_03/driver/mst_driver " +
+                string("assignment_03/tests/") +
                 filename
             );
         }
