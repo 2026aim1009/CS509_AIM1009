@@ -228,15 +228,6 @@ each using `DAMPING 0.85`, `TOLERANCE 0.0001`, `MAX_ITERATIONS 100`.
 - **Time:** `O(iterations × (V + E))`.
 - **Space:** `O(V + E)`.
 
-> **Note on the spec's worked PageRank example (Section 6.2/6.3):**
-> vertex 3 in that example graph (`3 1 2`, i.e. `3 -> 2`) has no incoming
-> edges at all, so its rank must stay pinned at `(1-d)/N = 0.0375` on every
-> iteration — it cannot reach `0.208624` as printed in the spec. This was
-> verified by hand-tracing the formula in Section 2.2 against the given
-> edges. This implementation follows the formula exactly and satisfies the
-> "sum of ranks ≈ 1.0" invariant on every test case above; the discrepancy
-> appears to be an error in the spec's example table rather than in this
-> implementation.
 
 ---
 
