@@ -53,13 +53,20 @@ CS509_AIM1009/
 │   ├── tests/
 │   └── tools/
 │
-└── assignment_03/
+├── assignment_03/
+│   ├── README.md
+│   ├── src/
+│   ├── driver/
+│   ├── tests/
+│   ├── tools/
+│   └── outputs/
+│
+└── assignment_04/
     ├── README.md
     ├── src/
     ├── driver/
     ├── tests/
-    ├── tools/
-    └── outputs/
+    └── tools/
 ```
 
 ---
@@ -110,6 +117,21 @@ Detailed documentation, including algorithms, input formats, execution instructi
 
 ```text
 assignment_03/README.md
+```
+
+---
+
+## Assignment 04
+
+Assignment 04 contains the following individual implementations:
+
+1. **Vertex Coloring — Greedy (Welsh-Powell ordering)**
+2. **PageRank**
+
+Detailed documentation, including algorithms, input formats, execution instructions, complexity analysis, and results, is available in:
+
+```text
+assignment_04/README.md
 ```
 
 ---
@@ -186,16 +208,11 @@ make csr
 make bellman_ford
 make floyd_warshall
 make mst
+make vertex_coloring
+make pagerank
 make wrapper
 ```
 ## Remove generated executables:
 ```bash
 make clean
 ```
-
-
-
-
-
-
-
