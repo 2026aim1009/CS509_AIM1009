@@ -23,6 +23,8 @@ int main() {
         cout << "3. Bellman-Ford" << endl;
         cout << "4. Floyd-Warshall" << endl;
         cout << "5. MST (Kruskal & Prim)" << endl;
+        cout << "6. Vertex Coloring (Greedy / Welsh-Powell)" << endl;
+        cout << "7. PageRank" << endl;
         cout << "0. Exit" << endl;
 
         cout << "\nEnter choice: ";
@@ -145,6 +147,52 @@ int main() {
             runCommand(
                 "./assignment_03/driver/mst_driver " +
                 string("assignment_03/tests/") +
+                filename
+            );
+        }
+
+        // --------------------------------------------------
+        // Vertex Coloring
+        // --------------------------------------------------
+        else if (choice == 6) {
+            cout << "\nAvailable Vertex Coloring test files:" << endl;
+            runCommand("ls assignment_04/tests/color_*.txt");
+
+            string testSize;
+            cout << "\nEnter Vertex Coloring test case size (e.g., 10, 100, 10000): ";
+            cin >> testSize;
+            string filename = "color_" + testSize + ".txt";
+
+            cout << "\nCompiling Vertex Coloring...\n" << endl;
+            runCommand("make vertex_coloring");
+
+            cout << "\nRunning Greedy Vertex Coloring on " << filename << "...\n" << endl;
+            runCommand(
+                "./assignment_04/driver/vertex_coloring_driver " +
+                string("assignment_04/tests/") +
+                filename
+            );
+        }
+
+        // --------------------------------------------------
+        // PageRank
+        // --------------------------------------------------
+        else if (choice == 7) {
+            cout << "\nAvailable PageRank test files:" << endl;
+            runCommand("ls assignment_04/tests/pagerank_*.txt");
+
+            string testSize;
+            cout << "\nEnter PageRank test case size (e.g., 10, 100, 1000): ";
+            cin >> testSize;
+            string filename = "pagerank_" + testSize + ".txt";
+
+            cout << "\nCompiling PageRank...\n" << endl;
+            runCommand("make pagerank");
+
+            cout << "\nRunning PageRank on " << filename << "...\n" << endl;
+            runCommand(
+                "./assignment_04/driver/pagerank_driver " +
+                string("assignment_04/tests/") +
                 filename
             );
         }
